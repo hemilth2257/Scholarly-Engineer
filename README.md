@@ -16,14 +16,14 @@ This project leverages a modern, decoupled architecture:
 * **Backend:** Python (30.7%)
 
 ##  Repository Structure
-\`\`\`text
+
+```text
 Scholarly_Engineer/
 ├── backend/            # Python microservices & analytics data scripts
 ├── frontend/           # React/TypeScript application components
 ├── assets/             # Project screenshots and visual elements
 ├── .gitignore          # Excludes environment files (.venv, node_modules)
 └── requirements.txt    # Python backend dependencies
-\`\`\`
 
 ##  Setup & Installation
 
