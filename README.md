@@ -29,13 +29,13 @@ Scholarly_Engineer/
 
 ### 1. Backend Setup
 Navigate to the backend folder, create your environment, and install dependencies:
-\`\`\`bash
+
+```bash
 cd backend
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run roadmap.py --server.port 8502
-\`\`\`
 
 ### 2. Frontend Setup
 In a new terminal, navigate to the frontend folder and start the development server:
