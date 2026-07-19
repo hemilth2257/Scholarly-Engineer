@@ -39,8 +39,8 @@ streamlit run roadmap.py --server.port 8502
 
 ### 2. Frontend Setup
 In a new terminal, navigate to the frontend folder and start the development server:
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
