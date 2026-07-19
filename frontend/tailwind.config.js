@@ -1,0 +1,73 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      "colors": {
+        "on-error": "#ffffff",
+        "surface-container-high": "#eae8e5",
+        "inverse-on-surface": "#f2f0ed",
+        "secondary-fixed": "#fdddbc",
+        "on-primary-container": "#9ca9f9",
+        "surface-variant": "#e4e2df",
+        "on-tertiary-fixed-variant": "#39475e",
+        "surface-dim": "#dbdad7",
+        "on-secondary-fixed-variant": "#58432b",
+        "secondary": "#715a40",
+        "tertiary-fixed-dim": "#b9c7e3",
+        "on-primary-fixed": "#00105c",
+        "primary-fixed-dim": "#bac3ff",
+        "outline": "#767682",
+        "primary-container": "#2e3b84",
+        "primary": "#15236d",
+        "on-primary": "#ffffff",
+        "surface": "#fbf9f6",
+        "surface-container-low": "#f5f3f0",
+        "background": "#fbf9f6",
+        "surface-container-highest": "#e4e2df",
+        "on-tertiary-fixed": "#0d1c31",
+        "error": "#ba1a1a",
+        "on-secondary": "#ffffff",
+        "surface-container": "#efeeeb",
+        "on-secondary-fixed": "#281805",
+        "primary-fixed": "#dee0ff",
+        "on-primary-fixed-variant": "#334089",
+        "inverse-primary": "#bac3ff",
+        "on-surface": "#1b1c1a",
+        "surface-container-lowest": "#ffffff",
+        "on-tertiary": "#ffffff",
+        "tertiary-fixed": "#d5e3ff",
+        "on-error-container": "#93000a",
+        "tertiary": "#1e2c42",
+        "on-surface-variant": "#454651",
+        "on-tertiary-container": "#a0aeca",
+        "surface-bright": "#fbf9f6",
+        "outline-variant": "#c6c5d2",
+        "secondary-container": "#fadab9",
+        "on-background": "#1b1c1a",
+        "secondary-fixed-dim": "#e0c1a1",
+        "error-container": "#ffdad6",
+        "on-secondary-container": "#765e44",
+        "inverse-surface": "#30312f",
+        "surface-tint": "#4c59a3",
+        "tertiary-container": "#344259"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "fontFamily": {
+        "headline": ["Newsreader", "serif"],
+        "body": ["Work Sans", "sans-serif"],
+        "label": ["Work Sans", "sans-serif"]
+      }
+    },
+  },
+  plugins: [],
+}

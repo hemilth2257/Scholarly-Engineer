@@ -1,0 +1,351 @@
+
+
+
+BIRLA VISHVAKARMA MAHAVIDYALAYA
+(BVM Engineering College)
+Vallabh Vidyanagar, Anand, Gujarat – 388120
+Department of Electronics Engineering
+
+
+PROJECT REPORT
+
+The Scholarly Engineer
+
+
+
+
+Submitted By
+Het Dave
+Hemil Thakkar
+
+Under the Guidance of
+Dipak M Patel
+Department of Electronics Engineering
+
+Department of Electronics Engineering | BVM Engineering College
+
+Acknowledgement
+We express our sincere gratitude to our guide Dipak M Patel, Assistant Professor, Department of Electronics Engineering, BVM Engineering College, for his guidance, constructive feedback, and support throughout this project. His technical expertise and mentoring have been invaluable in shaping the quality of this work.
+We also thank the Head of the Department, the faculty members, and the laboratory staff for providing us with the necessary resources and facilities.
+We are grateful to our fellow students for their peer discussions and collaborative spirit that made the learning process more productive.
+
+Het Dave
+Hemil Thakkar
+
+Table of Contents
+1. Abstract
+2. Introduction
+    2.1 Background and Motivation
+    2.2 Overview of the Proposed System
+    2.3 Significance of the Project
+    2.4 Scope of the Project
+3. Objectives
+    3.1 Primary Objectives
+    3.2 Secondary Objectives
+4. Results and Observations
+    4.1 Home Dashboard
+    4.2 Interactive Curriculum Tree
+    4.3 Study Materials Repository
+    4.4 Curriculum Analytics Dashboard
+5. Challenges Faced
+    5.1 Streamlit State Management
+    5.2 ECharts–Python Event Bridging
+    5.3 Custom CSS Styling in Streamlit
+6. Python Code
+    6.1 Hierarchical Data Generation (generate_data.py)
+    6.2 Dynamic Color Injection and ECharts Configuration (app.py)
+    6.3 Analytics Module (analytics.py)
+7. Website Screenshots
+    7.1 Home Dashboard
+    7.2 Curriculum Roadmap (ECharts Tree)
+    7.3 Study Materials
+    7.4 Analytics Dashboard
+8. Applications
+9. Future Scope
+10. Conclusion
+11. References
+
+1. Abstract
+The rapid evolution of Electronics Engineering (ECE) demands a structured, accessible, and data-driven approach to academic learning. This project introduces “The Scholarly Engineer,” an interactive web application designed to curate, visualize, and analyze the ECE curriculum. Built entirely on a Python-based monolithic architecture using the Streamlit framework, the platform serves as a digital curator for electronics engineering students.
+The application features an interactive hierarchical tree-based learning roadmap rendered via the streamlit-echarts library, a centralized repository for semester-wise study materials, a hub for practical hardware projects, and a dedicated data analytics dashboard. The roadmap module employs a custom Python algorithm to categorize each subject in the curriculum and dynamically assign color-coded ECharts nodes. Clicking any subject node triggers an inline analytics panel displaying a Matplotlib pie chart of that subject’s Lecture, Tutorial, and Practical hour distribution.
+By integrating Python data science libraries — Pandas, NumPy, Matplotlib, and Seaborn — the platform provides students and educators with deep insights into workload distribution, credit allocation, and theoretical versus practical hours across all eight semesters.
+This project bridges the gap between static academic syllabus documents and modern, interactive digital learning environments. It was developed as part of the Python Programming course for first-year second-semester students of the Electronics Engineering Department at Birla Vishvakarma Mahavidyalaya (BVM Engineering College), Vallabh Vidyanagar, for the academic year 2025–2026, under the guidance of Dipak M Patel.
+
+2. Introduction
+2.1 Background and Motivation
+Engineering students often struggle to visualize the full progression of their degree. They lack a holistic view of how foundational subjects such as Semiconductor Physics and Network Analysis in the early semesters connect to advanced specializations like VLSI Design or Embedded Systems in the later years. Traditional curriculum delivery relies on static PDF files and fragmented resource sharing, making it difficult for students to plan their academic journey effectively.
+Modern educational technology is moving away from static Learning Management Systems (LMS) toward interactive, student-centric dashboards. Platforms like Roadmap.sh have proven the effectiveness of visual learning paths for software engineers. However, hardware and electronics engineering disciplines lack a similarly rigorous, curated, and analytically rich visual guide. Furthermore, course workloads are rarely quantified in an accessible, subject-level manner.
+2.2 Overview of the Proposed System
+“The Scholarly Engineer” is a comprehensive, interactive digital platform designed specifically for students pursuing a B.Tech in Electronics Engineering. The application is divided into the following functional modules:
+Interactive Curriculum Tree: A hierarchical tree visualization rendered using streamlit-echarts, displaying the full 8-semester ECE curriculum. Each subject node is color-coded by category (Core Subject, Elective, Project/Research, Lab/Practical, Mathematics) and clicking a node triggers a subject-level analytics panel.
+Study Materials Repository: A semester-wise library linking directly to syllabi and reference materials hosted on cloud storage.
+Project Hub: A curated collection of practical hardware projects categorized by difficulty, bridging the gap between theory and hands-on implementation.
+Curriculum Analytics Dashboard: A data-driven module using Pandas, NumPy, Matplotlib, and Seaborn to visualize credit distributions and lecture-to-practical ratios across all eight semesters.
+2.3 Significance of the Project
+This project holds significant educational and practical value. It simultaneously demonstrates the power of Python as a full-stack development tool, integrating web framework capabilities (Streamlit) with data science libraries (Pandas, NumPy) and visualization tools (Matplotlib, Seaborn, streamlit-echarts) within a single unified application. The deliberate choice of a monolithic Streamlit architecture — as opposed to a distributed React/FastAPI setup — was made to maximize simplicity, maintainability, and educational clarity. The project directly applies Python programming concepts taught in the course to a real and meaningful problem in the academic domain.
+2.4 Scope of the Project
+The scope is defined by the B.Tech Electronics Engineering structure (2024–25), encompassing 8 semesters of coursework, open electives, program electives, and project-based learning modules. The platform is a scalable web application built entirely in Python that can be expanded to include other engineering disciplines in the future. The project covers Python web application development, hierarchical JSON data modeling, interactive chart rendering with streamlit-echarts, graph event handling between JavaScript and Python, data manipulation with Pandas, statistical aggregation with NumPy, and data visualization with Matplotlib and Seaborn.
+
+3. Objectives
+The primary and secondary objectives of this project are outlined below. These objectives guided all design decisions, technology selections, and implementation procedures throughout the project.
+3.1 Primary Objectives
+To develop an interactive hierarchical tree roadmap visualizing the 8-semester ECE curriculum using the streamlit-echarts library, with automatic subject categorization and dynamic color coding driven by a custom Python algorithm.
+To implement a subject-level analytics panel that responds to ECharts node click events by rendering a Matplotlib pie chart of the selected subject’s Lecture (L), Tutorial (T), and Practical (P) hour distribution.
+To create a centralized Study Materials repository linked directly to cloud storage, providing easy access to syllabi and reference materials organized by semester.
+To implement a Project Hub showcasing practical hardware applications categorized by difficulty and key components.
+To integrate Python data science libraries (Pandas, NumPy, Matplotlib, Seaborn) to analyze and visualize credit distributions and lecture-to-practical workload ratios across all semesters.
+To build the entire platform as a monolithic Python/Streamlit application, enabling seamless integration of data processing and frontend visualization within a single codebase.
+3.2 Secondary Objectives
+To understand the strengths of Python as a unified full-stack development language for data-driven web applications, and the trade-offs of a monolithic versus microservices architecture.
+To gain practical experience in modeling complex hierarchical academic data as nested JSON structures and consuming that data in a frontend visualization library.
+To learn and apply custom CSS styling within a Streamlit application to achieve a professional academic aesthetic.
+To understand the mechanism by which JavaScript-side events (such as ECharts node clicks) are captured and passed back to the Python backend in Streamlit.
+To document the entire design and development process in a structured project report following standard engineering conventions.
+
+4. Results and Observations
+4.1 Home Dashboard
+The landing page of The Scholarly Engineer successfully renders the three-pillar navigation layout directing users to the Roadmap, the Library, and the Project Workbench. The parchment-toned background (#fbf9f6) combined with deep indigo (#15236d) typography establishes a professional academic aesthetic. All navigation links function correctly and the page loads instantaneously due to Streamlit’s caching mechanisms.
+4.2 Interactive Curriculum Tree
+The interactive curriculum roadmap, rendered using streamlit-echarts, correctly displays the full B.Tech ECE curriculum as an expandable and collapsible horizontal tree. The root node (B.Tech Electronics Eng) branches into First Year through Fourth Year, each subdivided into individual semesters and their constituent subjects. The tree initializes at a depth of one level, allowing students to progressively expand branches of interest.
+Two significant enhancements characterize this module:
+Dynamic Color Coding via inject_colors()
+A custom recursive Python function, inject_colors(), traverses the entire curriculum JSON tree before it is passed to the ECharts component. For each leaf node (i.e., each individual subject), the function inspects the node’s name and metadata to assign it to one of five categories: Core Subject (blue, #5470c6), Elective (green, #91cc75), Project/Research (yellow, #fac858), Lab/Practical (red, #ee6666), or Mathematics (light blue, #73c0de). Semester and year grouping nodes are rendered in dark grey with a white fill and a colored border to visually distinguish them from subject leaves. These colors are injected directly into the ECharts node’s itemStyle dictionary and are reflected in the rendered tree as filled circles at each node, with a corresponding color legend displayed at the top of the page.
+Interactive Analytics Panel
+A JavaScript click event handler is registered on the ECharts component via the streamlit-echarts events parameter. When a student clicks on any subject node, the node’s full data dictionary — including its name, metadata (Credits, L, T, P, H), and assigned category — is returned to the Streamlit Python backend as the selected_node variable. The right-hand analytics column then dynamically renders a color-coded banner identifying the subject and its category, displays its credit and hour summary, and generates a Matplotlib pie chart breaking down the distribution of Lecture (L), Tutorial (T), and Practical (P) hours for that specific subject. Subjects with zero hours in a particular category are correctly excluded from the pie chart.
+4.3 Study Materials Repository
+The semester selection widget dynamically renders course codes and subject names for each selected semester. For Semesters 1 and 2, download links to cloud-hosted syllabi function correctly. Semesters 3 through 8 display appropriately disabled UI states indicating upcoming content availability. The Pandas DataFrame underlying the repository allows rapid querying and renders correctly in all tested browsers.
+4.4 Curriculum Analytics Dashboard
+The data analytics module produced the following key results upon testing:
+The Seaborn credit distribution bar chart correctly displayed varying credit weights across 8 semesters, with Semester 7 registering the highest credit load (24 credits) as expected for final-year specialization courses.
+The Matplotlib dual-line plot accurately depicted the pedagogical shift from high lecture hours in Semesters 1–4 to high practical hours in Semesters 7–8, validating the data pipeline from Pandas through to visualization.
+NumPy aggregation functions correctly computed total degree credits (167), mean practical hours per semester (13.2), and maximum lecture hours in a single semester (18).
+All visualizations rendered without errors within the Streamlit interface and were visually consistent with the platform’s design system.
+
+5. Challenges Faced
+The development of this project involved overcoming several practical challenges. Three key difficulties are described below.
+5.1 Streamlit State Management
+Streamlit reruns the entire Python script from scratch every time a user interacts with the interface. This meant that whenever a student navigated between tabs such as the Roadmap or Analytics page, all their previous selections and any expanded tree branches would reset. To address this, we used Streamlit’s st.session_state feature to persist user selections and UI state across script reruns, so the application feels smooth and continuous rather than resetting on every click. Careful management of session state keys was required to avoid conflicts between the independent states of different application modules.
+5.2 ECharts–Python Event Bridging
+One of the most technically demanding aspects of the project was capturing JavaScript-side click events from the ECharts tree component and reliably propagating them back to the Streamlit Python backend to update the analytics panel.
+The streamlit-echarts library allows a JavaScript function to be registered as an event handler via the events parameter dictionary. When a node is clicked, this function receives the ECharts params object and must return a Python-serializable value. The returned value is then available on the Python side as the return value of the st_echarts() call. The critical challenge was that only JSON-serializable data can cross this JavaScript-to-Python boundary. Since each node in the curriculum tree contains a nested metadata dictionary, we had to ensure the entire node’s data property — including nested keys for Credits, L, T, P, and H — was correctly serialized by the event handler function (return params.data;) and correctly deserialized by Streamlit into a Python dictionary.
+A further complication arose from the fact that semester and year group nodes do not carry a metadata field. The application must gracefully distinguish between a click on an expandable group node (which has no analytics to display) and a click on a subject leaf node (which should trigger the analytics panel). This distinction is handled by checking for the presence of the metadata key in the returned dictionary: if selected_node and "metadata" in selected_node.
+5.3 Custom CSS Styling in Streamlit
+Streamlit’s default appearance is plain and designed for data science tools, not for a polished academic platform. To achieve the editorial look required — with the Newsreader serif font for headings, Work Sans for body text, and a parchment-colored background — custom CSS was injected directly into the app using st.markdown with unsafe_allow_html=True. Getting these styles to apply correctly without breaking Streamlit’s own built-in components required careful inspection of Streamlit’s internal DOM structure and iterative testing. In particular, overriding the background color of metric containers and chart areas required targeting internal Streamlit CSS selectors (e.g., [data-testid="stMetricValue"]) rather than standard HTML element selectors.
+
+6. Python Code
+The following sections present the core Python code written for The Scholarly Engineer project. The application follows a monolithic Streamlit architecture distributed across three Python modules: generate_data.py, app.py, and analytics.py.
+6.1 Hierarchical Data Generation (generate_data.py)
+This module generates the curriculum_data.json file that drives the ECharts tree. Each subject is stored as a leaf node with a metadata object containing its credit and hour breakdown. The generate_curriculum_data() function encodes the complete 8-semester B.Tech ECE structure as a nested Python dictionary and serializes it to JSON.
+
+import json
+
+def generate_curriculum_data():
+    course_data = {
+        "name": "B.Tech Electronics Eng",
+        "children": [
+            {
+                "name": "First Year",
+                "children": [
+                    {
+                        "name": "Semester 1",
+                        "children": [
+                            {"name": "Mathematics - I",
+                             "metadata": {"Credits": 4, "L": 3,
+                                          "T": 1, "P": 0, "H": 4}},
+                            {"name": "Basic Electronics",
+                             "metadata": {"Credits": 4, "L": 3,
+                                          "T": 0, "P": 2, "H": 5}},
+                            # ... (all 6 Semester 1 subjects)
+                        ]
+                    }
+                ]
+            }
+            # ... (Second Year, Third Year, Fourth Year)
+        ]
+    }
+    with open("curriculum_data.json", "w") as f:
+        json.dump([course_data], f, indent=4)
+
+if __name__ == "__main__":
+    generate_curriculum_data()
+6.2 Dynamic Color Injection and ECharts Configuration (app.py)
+This module contains the two most significant technical components of the project: the inject_colors() function and the ECharts options dictionary.
+
+Subject Categorization and Color Injection
+CATEGORY_COLORS = {
+    "Core Subject":     "#5470c6",  # Blue
+    "Elective":         "#91cc75",  # Green
+    "Project/Research": "#fac858",  # Yellow
+    "Lab/Practical":    "#ee6666",  # Red
+    "Mathematics":      "#73c0de",  # Light Blue
+    "Root/Semester":    "#333333"   # Dark Grey
+}
+
+def determine_category(name, metadata):
+    name_lower = name.lower()
+    if "elective" in name_lower:
+        return "Elective"
+    elif "project" in name_lower or "research" in name_lower \
+            or "internship" in name_lower:
+        return "Project/Research"
+    elif "lab" in name_lower or "drawing" in name_lower \
+            or (metadata.get("L") == 0 and metadata.get("P", 0) > 0):
+        return "Lab/Practical"
+    elif "mathematics" in name_lower or "math" in name_lower:
+        return "Mathematics"
+    else:
+        return "Core Subject"
+
+def inject_colors(node):
+    if "metadata" in node:
+        category = determine_category(node["name"], node["metadata"])
+        node["category"] = category
+        color = CATEGORY_COLORS[category]
+        node["itemStyle"] = {"color": color, "borderColor": color}
+    else:
+        node["category"] = "Root/Semester"
+        color = CATEGORY_COLORS["Root/Semester"]
+        node["itemStyle"] = {
+            "color": "white",
+            "borderColor": color,
+            "borderWidth": 2
+        }
+    if "children" in node:
+        for child in node["children"]:
+            inject_colors(child)  # Recursive traversal
+
+inject_colors(tree_data)  # Run before passing to ECharts
+
+ECharts Tree Configuration and Event Handling
+options = {
+    "tooltip": {
+        "trigger": "item",
+        "triggerOn": "mousemove",
+        "formatter": "function(info) { var d = info.data; "
+                      "if(d.metadata) { return '<b>' + d.name + '</b>'"
+                      "+ '<br/>Category: ' + d.category "
+                      "+ '<br/>Credits: ' + d.metadata.Credits; }"
+                      "return d.name; }"
+    },
+    "series": [{
+        "type": "tree",
+        "data": [tree_data],
+        "orient": "horizontal",
+        "symbol": "circle",
+        "symbolSize": 14,
+        "expandAndCollapse": True,
+        "initialTreeDepth": 1,
+        "label": {"position": "left", "align": "right"},
+        "leaves": {"label": {"position": "right", "align": "left"}}
+    }]
+}
+
+events = {"click": "function(params) { return params.data; }"}
+
+selected_node = st_echarts(
+    options=options, events=events,
+    height="800px", key="echarts"
+)
+
+# Handle click event in Python
+if selected_node and "metadata" in selected_node:
+    metadata = selected_node["metadata"]
+    # Render analytics panel for the selected subject
+6.3 Analytics Module (analytics.py)
+This module structures the curriculum summary data into a Pandas DataFrame, uses NumPy for statistical aggregation, and generates the credit distribution bar chart (Seaborn) and the lecture vs. practical line chart (Matplotlib).
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = {
+    'Semesters': ['Sem 1','Sem 2','Sem 3','Sem 4',
+                  'Sem 5','Sem 6','Sem 7','Sem 8'],
+    'Credits':          [20, 20, 23, 21, 20, 21, 24, 18],
+    'Lecture Hours':    [14, 15, 18, 15, 17, 15, 15,  6],
+    'Practical Hours':  [10, 12, 10, 10, 10, 12, 18, 24]
+}
+df = pd.DataFrame(data)
+
+# NumPy aggregations
+total_credits      = np.sum(df['Credits'])       # 167
+avg_practical      = np.mean(df['Practical Hours'])  # 13.2
+max_lecture        = np.max(df['Lecture Hours'])     # 18
+
+# Seaborn: Credit Distribution
+fig_bar, ax_bar = plt.subplots(figsize=(8, 5))
+sns.barplot(data=df, x='Semesters', y='Credits',
+            color='#15236d', ax=ax_bar)
+ax_bar.spines['top'].set_visible(False)
+ax_bar.spines['right'].set_visible(False)
+st.pyplot(fig_bar)
+
+# Matplotlib: Lecture vs Practical Hours
+fig_line, ax_line = plt.subplots(figsize=(8, 5))
+ax_line.plot(df['Semesters'], df['Lecture Hours'],
+             marker='o', color='#5b21b6', label='Lecture Hours')
+ax_line.plot(df['Semesters'], df['Practical Hours'],
+             marker='s', color='#0ea5e9', label='Practical Hours')
+ax_line.legend()
+ax_line.grid(True, linestyle='--', alpha=0.3)
+st.pyplot(fig_line)
+
+7. Website Screenshots
+The following section describes the deployed modules of The Scholarly Engineer web application. Each description corresponds to a key page of the platform as visible in the accompanying frontend PDF references.
+7.1 Home Dashboard
+Figure 1 shows the landing page of the platform with the three-pillar navigation layout and the academic parchment-themed design. The headline “Where Engineering Meets Philosophical Rigor” anchors the platform’s identity, with clear call-to-action buttons directing users to “Enter the Archive” (Study Materials) and “View Roadmap” (Curriculum Tree).
+
+[ Figure 1: The Scholarly Engineer – Home Dashboard ]
+
+7.2 Curriculum Roadmap (ECharts Tree)
+Figure 2 shows the interactive ECharts tree roadmap rendering the full 8-semester ECE curriculum. Color-coded nodes distinguish subject categories (Core Subject, Elective, Project/Research, Lab/Practical, Mathematics), and the collapsible tree layout allows students to explore individual semesters. The right-hand panel shows the analytics dashboard awaiting a subject click.
+
+[ Figure 2: ECharts Hierarchical Curriculum Tree with Color-Coded Subject Nodes ]
+
+7.3 Study Materials Repository
+Figure 3 shows the semester-wise Study Materials & Archives page. Subject cards display course codes (e.g., 101HS, 101BS, 104BS) and subject names, with “Access Material” download links. Semester filter tabs allow rapid navigation between all eight semesters.
+
+[ Figure 3: Semester-wise Study Materials Repository ]
+
+7.4 Analytics Dashboard
+Figure 4 shows the Curriculum Analytics dashboard displaying the Seaborn credit distribution bar chart and the Matplotlib lecture vs. practical hours dual-line chart. The three metric cards at the top summarize total credits (167), average practical hours per semester (13.2), and the maximum lecture hours in any semester (18).
+
+[ Figure 4: Curriculum Analytics Dashboard – Charts & Insights ]
+
+8. Applications
+The Scholarly Engineer platform has a wide range of practical applications across educational institutions and academic planning contexts.
+University Curriculum Portals: The platform can be deployed as an official departmental resource, replacing static PDF syllabus documents with an interactive, always-current digital curriculum guide with subject-level analytics.
+Student Academic Planning: Students can use the roadmap module to understand course progressions, identify workload-intensive semesters, and make informed decisions about elective selections based on the credit and hour analytics.
+Faculty Workload Analysis: Educators and administrators can use the analytics dashboard to identify semesters with disproportionately high theoretical or practical loads and adjust curriculum design accordingly.
+Multi-Discipline Expansion: The platform’s modular architecture and JSON-driven data model allow it to be replicated for other engineering branches by replacing the underlying curriculum_data.json file without changes to the application framework.
+Career Guidance Integration: The Project Hub can be extended to link hardware projects to industry-relevant skills, helping students identify which projects best prepare them for careers in embedded systems, VLSI, and IoT.
+EdTech Prototyping: The project demonstrates that Python alone, using Streamlit and its ecosystem, can produce production-quality educational technology applications, including rich interactive charts driven by JavaScript rendering engines, without requiring a separate frontend framework.
+
+9. Future Scope
+While the current implementation successfully achieves all objectives set for this Python Programming course project, numerous directions exist for future enhancement.
+User Authentication and Progress Tracking: Implementing a login system using Streamlit-Authenticator would allow students to create personal profiles, mark completed courses, and track their individual progress through the curriculum roadmap.
+Machine Learning Integration: Integrating scikit-learn could enable predictive models that forecast student workload stress based on historical grading data, course combinations, and semester performance trends.
+Dynamic Syllabus Scraping: Automating the Pandas data pipeline to scrape the university website for syllabus updates would remove the need for manually maintained JSON data files and ensure the platform always reflects the current curriculum.
+Database Backend: Replacing in-memory Pandas DataFrames with a SQLite or PostgreSQL database backend would enable persistent storage of user progress, annotations, and custom resource links.
+Prerequisite Chain Visualization: Extending the tree model to encode and display formal subject prerequisites would help students understand the dependency structure of the curriculum and plan their elective choices more effectively.
+Mobile-Responsive Deployment: Deploying the application on Streamlit Cloud with a responsive CSS layout and optimized chart dimensions would make the platform accessible on smartphones and tablets.
+
+10. Conclusion
+“The Scholarly Engineer” project was conceived, designed, implemented, and documented successfully as a Python Programming course project by Het Dave and Hemil Thakkar of the Electronics Engineering Department at Birla Vishvakarma Mahavidyalaya, under the guidance of Dipak M Patel.
+The project achieved all of its primary objectives. The deliberate architectural decision to consolidate the entire application — data processing, hierarchical tree rendering, and analytics visualization — into a monolithic Python/Streamlit codebase proved to be a sound and maintainable choice. The streamlit-echarts library successfully rendered a fully interactive, color-coded hierarchical curriculum tree; the custom inject_colors() algorithm correctly categorized all curriculum subjects and applied a consistent visual taxonomy; the ECharts–Python event bridge reliably propagated subject click events to trigger subject-level pie chart analytics; the Pandas and NumPy data pipeline structured and aggregated curriculum data accurately; and the Matplotlib and Seaborn visualization modules produced clear, informative charts that transform static syllabus data into actionable academic insights.
+The three main challenges encountered — Streamlit’s stateless execution model, the complexity of bridging JavaScript ECharts click events back to the Python backend, and CSS injection for custom theming — were all resolved through systematic problem-solving and iterative development, providing valuable real-world programming experience.
+The success of this project demonstrates that Python’s rich ecosystem of libraries enables first-year engineering students to build sophisticated, practically useful, and professionally designed software tools. The project lays a strong foundation for more advanced work in data science, interactive visualization, and full-stack Python development in the subsequent years of the B.Tech programme.
+
+11. References
+[1] Streamlit Inc., Streamlit Documentation – Build and Share Data Apps. Streamlit Inc., 2024. Available: https://docs.streamlit.io
+[2] streamlit-echarts Contributors, streamlit-echarts – Apache ECharts component for Streamlit. GitHub Repository, 2023. Available: https://github.com/andfanilo/streamlit-echarts
+[3] Apache ECharts Project Management Committee, Apache ECharts – A Powerful, Interactive Charting and Visualization Library for Browser. Apache Software Foundation, 2024. Available: https://echarts.apache.org
+[4] McKinney, W., “Data Structures for Statistical Computing in Python,” Proceedings of the 9th Python in Science Conference, 2010. (Pandas Library)
+[5] Harris, C. R., et al., “Array programming with NumPy,” Nature, vol. 585, pp. 357–362, 2020.
+[6] Hunter, J. D., “Matplotlib: A 2D graphics environment,” Computing in Science & Engineering, vol. 9, no. 3, pp. 90–95, 2007.
+[7] Waskom, M. L., “Seaborn: statistical data visualization,” Journal of Open Source Software, vol. 6, no. 60, p. 3021, 2021.
+[8] BVM Engineering College, Programme Structure for B.Tech. Electronics Engineering (2024–25). Birla Vishvakarma Mahavidyalaya, Vallabh Vidyanagar, 2024.
+[9] Python Software Foundation, Python 3.11 Documentation. Available: https://docs.python.org/3.11/
+[10] Roadmap.sh Contributors, Developer Roadmaps – Community-driven roadmaps, guides and learning paths. Available: https://roadmap.sh
+[11] Van Rossum, G. and Drake, F. L., Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN: 978-1-4414-1269-0.
